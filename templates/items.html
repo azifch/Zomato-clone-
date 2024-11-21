@@ -1,0 +1,136 @@
+{% extends 'base2.html' %} 
+{% load static %} 
+{% block title %} Best Restaurants in India - Zomato {% endblock %} 
+{% block body %} 
+
+  <div class="food-type container">
+    <a href="javascript:history.go(-1)"><i class="bi bi-arrow-left"></i></a>
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="icon-tab-0" data-bs-toggle="tab" href="#icon-tabpanel-0" role="tab" aria-controls="icon-tabpanel-0" aria-selected="true" style="color: black;"><img src="{% static 'images/icons/delivery2.png' %}" alt=""> Delivery</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="icon-tab-1" data-bs-toggle="tab" href="#icon-tabpanel-1" role="tab" aria-controls="icon-tabpanel-1" aria-selected="false" style="color: black;"><img src="{% static 'images/icons/dinning2.png' %}" alt=""> Dining Out</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="tab-content pt-1" id="tab-content">
+    <div class="tab-pane active" id="icon-tabpanel-0" role="tabpanel" aria-labelledby="icon-tab-0">
+      
+        <div class="food-items container">
+            <div class="heading">
+                <h1>Inspiration for your first order</h1>
+            </div>
+            <div class="row row-cols-1 row-cols-md-6 g-6">
+              {% for x in fooditem %}
+                <div class="col">
+                <div class="card">
+                    <img src="{{x.FI_image.url}}" alt="">
+                    <h3>{{x.FI_name}}</h3>
+                </div>
+                </div>
+              {% endfor %}
+            </div>
+        </div>
+    
+        <div class="food-brands container">
+            <div class="heading">
+                <h1>Top brands for you</h1>
+            </div>
+            <div class="row row-cols-1 row-cols-md-6 g-6">
+              {% for x in foodbrand %}
+                <div class="col">
+                <div class="card">
+                    <img src="{{x.FB_image.url}}" alt="">
+                    <h3>{{x.FB_name}}</h3>
+                    <p>{{x.FB_dtime}}</p>
+                </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div> 
+    
+        <div class="foods-container container">
+            <h1>Best Foods in Mumbai</h1>
+            <div class="filters container">
+              <div class="btn" role="group">
+                  <h3 style="padding-top: 14px;"><i class="bi bi-funnel"></i> Filters :</h3>
+                  <div class="button">
+                      <a href="{% url 'ratingList' %}">
+                          <button type="button" class="btn btn-outline-secondary d-block mx-auto">Rating: 4.0+</button>
+                      </a>
+                      <a href="{% url 'vegList' %}">
+                          <button type="button" class="btn btn-outline-secondary d-block mx-auto">Pure Veg</button>
+                      </a>
+                      <a href="{% url 'deliveryTimeList' %}">
+                          <button type="button" class="btn btn-outline-secondary d-block mx-auto">Deliver Time</button>
+                      </a>
+                      <a href="{% url 'items' %}">
+                          <button type="button" class="btn btn-outline-secondary d-block mx-auto">All</button>
+                      </a>
+                  </div>
+              </div>
+          </div>
+          
+            <div class = "cards-container">
+              {% for x in food %}
+                <div class = "card">
+                  <div class = "card-media">
+                    <div class="img">
+                        <a href="/itemsDetail/{{x.F_id}}"><img src="{{x.F_image.url}}" alt=""></a>
+                    </div>
+                    <div class = "discount">{{x.F_discount}}</div>
+                    <div class = "delivery-time">{{x.F_dtime}}</div>
+                  </div>
+                  <div class = "card-description">
+                    <div class = "about-place">
+                      <div class = "place">
+                        <p class = "place-name">{{x.F_name}}</p>
+                        <p class = "place-speciality">{{x.F_speciality}}</p>
+                      </div>
+                      <div class = "place-review">
+                        <p class = "rating">{{x.F_rating}} &#x2605;</p>
+                        <p class = "per-person"> &#x20b9; {{x.F_price}} per one</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+        </div>
+    </div>
+    <div class="tab-pane" id="icon-tabpanel-1" role="tabpanel" aria-labelledby="icon-tab-1">
+      <div class="dine-container container">
+        <h1>Best Restaurants in Mumbai</h1>
+        <div class = "cards-container">
+          {% for x in restaurant %}
+            <div class = "card">
+              <div class = "card-media">
+                <div class="img">
+                    <a href="/restDetail/{{x.R_id}}"><img src="{{x.R_image.url}}"></a>
+                </div>
+                <div class = "discount">{{x.R_discount}}</div>
+                <div class = "distance">{{x.R_distance}}</div>
+              </div>
+              <div class = "card-description">
+                <div class = "about-place">
+                  <div class = "place">
+                    <p class = "place-name">{{x.R_name}}</p>
+                    <p class = "location">{{x.R_location}}</p>
+                    <p class = "place-speciality">{{x.R_speciality}}</p>
+                  </div>
+                  <div class = "place-review">
+                    <p class = "rating">{{x.R_rating}} &#x2605;</p>
+                    <p class = "per-person"> &#x20b9; {{x.R_price}} for two</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+    </div>
+    </div>
+  </div>
+    
+{% endblock %}

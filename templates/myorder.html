@@ -1,0 +1,33 @@
+{% extends 'base2.html' %} 
+{% load static %} 
+{% block title %} Best Restaurants in India - Zomato {% endblock %} 
+{% block body %} 
+
+<div class="container">
+    
+    <a href="javascript:history.go(-1)"><i class="bi bi-arrow-left"></i></a> 
+    <h2 class="mt-1 mb-4">My Orders</h2>    
+    <!-- Cart Items -->
+    {% for x in myorder %}
+    <div class="cart-item m-3">
+        <div class="row">
+            <div class="col-md-2">
+                <img src="{{x.product.F_image.url}}" alt="Food Image 1" class="img-fluid">
+            </div>
+            <div class="col-md-3">
+                <h5>{{x.product.F_name}}</h5>
+                <p>{{x.product.F_speciality}}</p>
+            </div>
+            <div class="col-md-3 m-3">
+                <p>&#x20b9; {{x.product.F_price}} per one</p>
+            </div>
+            <div class="col-md-3 m-3">
+                <p><b>Quantity:</b>&nbsp;&nbsp;{{x.quantity}}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}    
+    
+</div>
+
+{% endblock %}

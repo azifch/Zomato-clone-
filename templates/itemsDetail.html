@@ -1,0 +1,43 @@
+{% extends 'base2.html' %} 
+{% load static %} 
+{% block title %} Best Restaurants in India - Zomato {% endblock %} 
+{% block body %}  
+  <div class="container">
+
+    <div class="row mt-4">
+        <a href="javascript:history.go(-1)"><i class="bi bi-arrow-left"></i></a>
+        <!-- Food Item Details -->
+        <div class="col-lg-8">
+            <h2 class="mb-4">{{food.F_name}}</h2>
+
+            <!-- Image Gallery -->
+            <div class="gallery">
+                <img src="{{food.F_image.url}}" alt="Food Image 1" style="width: 100%; height: 400px; margin-bottom: 10px;">
+            </div>         
+        </div>
+
+        <!-- Sidebar with Additional Information -->
+        <div class="col-lg-4 mt-5">
+             <!-- Nutritional Information -->
+             <h4 class="mt-4">Nutritional Information</h4>
+             <ul>
+                 <li>Calories: 300</li>
+                 <li>Protein: 20g</li>
+                 <li>Carbohydrates: 40g</li>
+                 <li>Fat: 10g</li>
+             </ul>
+
+            <h4 class="mb-4">Additional Information</h4>
+            <p><strong>Price:</strong> &#x20b9; {{food.F_price}} per one</p>
+            <p><strong>Availability:</strong> In Stock</p>
+            <p><strong>Speciality:</strong> {{food.F_speciality}}</p>
+
+            <!-- Call to Action Button -->
+            <a href="/addcart/{{food.F_id}}" class="btn btn-danger btn-block mt-4">Add to Cart</a>
+            <a href="/items"><button type="button" class="btn btn-danger btn-block mt-4">Back</button></a>
+        </div>
+    </div>
+    <!-- /.row -->
+
+</div>
+{% endblock %}

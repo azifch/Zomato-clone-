@@ -1,0 +1,77 @@
+{% extends 'base2.html' %} 
+{% load static %} 
+{% block title %} Best Restaurants in India - Zomato {% endblock %} 
+{% block body %} 
+    <style>
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .restaurant {
+            font-style: italic;
+            color: #888;
+        }
+    </style>
+
+<div class="container">
+    <a href="javascript:history.go(-1)"><i class="bi bi-arrow-left"></i></a>
+    <h2>Booked Tables</h2>
+    {% for booking in booked_tables %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Restaurant</th>
+                    <th>User</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>No. of People</th>
+                    <th>Cancel Booking</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>{{ booking.restaurant.R_name }}</td>
+                        <td>{{ booking.user }}</td>
+                        <td>{{ booking.name }}</td>
+                        <td>{{ booking.date }}</td>
+                        <td>{{ booking.time }}</td>
+                        <td>{{ booking.people_size }}</td>
+                        <td>
+                            <form action="{% url 'cancelBooking' booking.booking_id %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit">Cancel</button>
+                            </form>
+                        </td>
+                    </tr>                            
+            </tbody>
+        </table>
+        {% empty %}        
+        <p class="text-center" >No Tables have been booked.</p>
+    {% endfor %}
+</div>
+{% endblock %}

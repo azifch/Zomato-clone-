@@ -1,0 +1,211 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %} Best Restaurants in India - Zomato {% endblock %} 
+{% block body %} 
+    <section class="section-1">
+        <div class="container container-feature">
+            <div class="features">
+                <div class="feature-image">
+                    <img src="{% static 'images/items/feature-1.avif' %}" alt="">
+                </div>
+                <h3>Order Online</h3>
+                <p>Stay home and order to your doorstep</p>
+            </div>
+            <div class="features">
+                <div class="feature-image">
+                    <img src="{% static 'images/items/diningout.jpg' %}" alt="">
+                </div>
+                <h3>Dining</h3>
+                <p>View th city's favourite dining venues</p>
+            </div>
+            <div class="features">
+                <div class="feature-image">
+                    <img src="{% static 'images/items/nightlifeandclubs.jpg' %}" alt="">
+                </div>
+                <h3>Nightlife and Clubs</h3>
+                <p>Explore the city's top Nightlife Outlets</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-2">
+        <div class="container section-2-top">
+            <div class="section-2-left">
+                <h1>Collections</h1>
+                <p>Explore curated lists of top restaurants, cafes, pubs, and bars in Mumbai, based on trends</p>
+            </div>
+            <div class="section-2-right">
+                <p>All collections in Kochi <i class="bi bi-caret-right-fill"></i></p>
+            </div>
+        </div>
+        <div class="container section-2-body">
+            <div class="section-2-item">
+                <img src="{% static 'images/items/collection-1.avif' %}" alt="">
+                <div class="section-2-image-description">
+                    <p>Viral Chocolate Strawberry</p>
+                    <p>8 Places <i class="bi bi-caret-right-fill"></i></p> 
+                </div>
+            </div>
+            <div class="section-2-item">
+                <img src="{% static 'images/items/collection-2.avif' %}" alt="">
+                <div class="section-2-image-description">
+                    <p>Newly Opened Restaurants</p>
+                    <p>15 Places <i class="bi bi-caret-right-fill"></i></p> 
+                </div>
+            </div>
+            <div class="section-2-item">
+                <img src="{% static 'images/items/collection-3.avif' %}" alt="">
+                <div class="section-2-image-description">
+                    <p>Best in Kochi</p>
+                    <p>25 Places <i class="bi bi-caret-right-fill"></i></p> 
+                </div>
+            </div>
+            <div class="section-2-item">
+                <img src="{% static 'images/items/collection-4.avif' %}" alt="">
+                <div class="section-2-image-description">
+                    <p>Sea View Dining Places</p>
+                    <p>13 Places <i class="bi bi-caret-right-fill"></i></p> 
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-3 container">
+        <h1>Popular localities in and around <strong>Kochi</strong></h1>
+        <div class="container container-list">
+            <div class="localities-list">
+                <div class="localities-card">
+                    <h3>Lower Parel</h3>
+                    <p>183 places</p>
+                </div>
+                <i class="bi bi-chevron-right"></i>
+            </div>
+            <div class="localities-list">
+                <div class="localities-card">
+                    <h3>Powai</h3>
+                    <p>335 places</p>
+                </div>
+                <i class="bi bi-chevron-right"></i>
+            </div>
+            <div class="localities-list">
+                <div class="localities-card">
+                    <h3>Malad West</h3>
+                    <p>770 places</p>
+                </div>
+                <i class="bi bi-chevron-right"></i>
+            </div>
+            <div class="localities-list">
+                <div class="localities-card">
+                    <h3>Borivali West</h3>
+                    <p>548 places</p>
+                </div>
+                <i class="bi bi-chevron-right"></i>
+            </div>
+            <div class="localities-list">
+                <div class="localities-card">
+                    <h3>Bandra Kurla Complex</h3>
+                    <p>97 places</p>
+                </div>
+                <i class="bi bi-chevron-right"></i>
+            </div>
+            <div class="localities-list">
+                <div class="localities-card">
+                    <h3>Fort</h3>
+                    <p>220 places</p>
+                </div>
+                <i class="bi bi-chevron-right"></i>
+            </div>
+            <div class="localities-list">
+                <div class="localities-card">
+                    <h3>Vashi</h3>
+                    <p>541 places</p>
+                </div>
+                <i class="bi bi-chevron-right"></i>
+            </div>
+            <div class="localities-list">
+                <div class="localities-card">
+                    <h3>Juhu</h3>
+                    <p>197 places</p>
+                </div>
+                <i class="bi bi-chevron-right"></i>
+            </div>
+            <div class="localities-list">
+                <div class="localities-card-seemore">
+                    <span>See More</span><i class="bi bi-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class = "container__get_the_App">
+        <div class = "semi_container">
+            <div class = "semi_container__left">
+                <img src = "{% static 'images/items/mobile.png' %}" alt = "mobile image" />
+            </div>
+            <div class = "semi_container__right">
+                <h1>Get the Zomato App</h1>
+                <p>We will send you a link, open it and download the app now</p>
+                <div class = "radio_button__container">
+                    <div>
+                        <input type = "radio" id = "email" name = "downloadApp" />
+                        <label for = "email" style = "font-size:14px;">Email</label>
+                    </div>
+                        <div>
+                        <input type = "radio" id = "phone" name = "downloadApp" />
+                        <label for = "phone" style = "font-size:14px;">Phone</label>
+                    </div>
+                </div>
+                <div class = "input__container">
+                    <input type = "text" placeholder = "Email" />
+                    <button>Share App Link</button>
+                </div>
+                <div class = "download_app__container">
+                    <h5>Download App From</h5>
+                    <div>
+                        <img src = "{% static 'images/icons/appstore.png' %}" alt = "Apple store" />
+                        <img src = "{% static 'images/icons/playstore.png' %}" alt = "Play store" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class = "explore_places__container">
+        <div class = "sub_container">
+            <div>
+                <h1>Explore Options Near Me</h1>
+                <span>Explore the restaurants and cuisines across various cities under our service</span>
+            </div>
+            <div class = "drop_down__container">
+                <div>
+                    <select class = "drop_down_menu">
+                        <option>Popular cuisines Near Me</option>
+                        <option>Bakery food near me</option>
+                        <option>Biryani food near me</option>
+                        <option>Burger food near me</option>
+                        <option>Sandwich food near me</option>
+                    </select>
+                </div>
+                <div>
+                    <select class = "drop_down_menu">
+                        <option>Popular Restaurant Near Me</option>
+                        <option>Bakeries near me</option>
+                        <option>Dhabas near me</option>
+                        <option>Dessert Parlors near me</option>
+                        <option>Cafés near me</option>
+                    </select>
+                </div>
+                <div>
+                    <select class = "drop_down_menu">
+                        <option>Cities We Deliver To</option>
+                        <option>Mumbai</option>
+                        <option>Pune</option>
+                        <option>Banglore</option>
+                        <option>Delhi</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

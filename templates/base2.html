@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}  {% endblock %}</title>
+    <link rel="shortcut icon" href="https://tse2.mm.bing.net/th?id=OIP.ZnFQtmeCLNZ7Rd_m9Ba1xAHaHa&pid=Api&P=0&h=180" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">       
+        <div class="shadow p-3 mb-4 bg-body-tertiary rounded" style="display: flex;">
+            <div class="container-logo">
+                <a href="/"><img src="{% static 'images/icons/footerLogo.png' %}" style="width: 100px;
+                    margin-top: 15px; margin-right: 15px;"></a>
+            </div>
+            <div class="search-container">
+                <div class="detect-location" style="display: flex;">
+                    <img src="{% static 'images/icons/location.png' %}" alt="">
+                    <input type="text" placeholder="Mumbai">
+                    <img src="{% static 'images/icons/down-arrow.png' %}" alt="">
+                </div>
+                <span style="padding: 7px;">|</span>
+                <form id="search-form" class="d-flex" method="get" action="/search/">
+                    {% csrf_token %}
+                    <div class="search-item">
+                        <img src="{% static 'images/icons/search.png' %}" style="width: 25px; height: fit-content; margin-top: 2px; position: absolute;">
+                        <input id="search-input" type="search" name="q" placeholder="Search for restaurant, cuisine or a dish">
+                        <button type="submit" class="btn btn-danger" style="position: absolute;
+                        right: 400px;
+                        margin-top: -6px;">Search</button>
+                    </div>
+                </form>                
+            </div>
+            <ul style="margin-left: -20px;gap: 20px;margin-top: 13px;">
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}"><strong>LogOut</strong></a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}"><strong>LogIn</strong></a></li>
+                {% endif %}
+                <li><a href="{% url 'myOrders' %}"><strong>My Orders</strong></a></li>
+                <li><a href="{% url 'cart' %}"><i class="bi bi-cart" style="font-size: 18px; font-weight:650;">Cart</i></a></li>
+            </ul>
+        </div>
+        </div>  
+    </header>
+
+    {% block body %}
+
+    {% endblock %}
+
+    <footer class = "footer__container">
+        <div class = "footer_section1">
+            <img src = "{% static 'images/icons/footerLogo.png' %}" alt = "zomato logo" />
+            <div class = "section1__button_container">
+                <button>
+                    <img src = "{% static 'images/items/indiaflag.png' %}" alt = "Indian Flag" style = "width: 16px; height: 16px" />
+                    <select style = "border: none; background: #e8e8e8; cursor: pointer">
+                        <option>India</option>
+                        <option>United States</option>
+                        <option>Australia</option>
+                        <option>New Zealand</option>
+                        <option>Spain</option>
+                        <option>England</option>
+                    </select>
+                </button>
+                <button>
+                    <i class="bi bi-globe"></i>
+                    <select style = "border: none; background: #e8e8e8; cursor: pointer">
+                        <option>English</option>
+                        <option>Español</option>
+                        <option>Čeština</option>
+                        <option>Slovenčina</option>
+                        <option>Polish</option>
+                        <option>Italian</option>
+                    </select>
+                </button>
+            </div>
+        </div>
+        <div class = "navigation_container">
+            <div class = "link_container">
+                <h5>About Zomato</h5>
+                <div class = "link_container_anchors">
+                    <a href = "#">Who We Are</a>
+                    <a href = "#">Blog</a>
+                    <a href = "#">Work With Us</a>
+                    <a href = "#">Investor Relations</a>
+                    <a href = "#">Report Fraud</a>
+                    <a href = "#">Contact Us</a>
+                </div>
+            </div>
+            
+            <div class = "link_container">
+                <h5>Zomaverse</h5>
+                <div class = "link_container_anchors">
+                    <a href = "#">Zomato</a>
+                    <a href = "#">Blinkit</a>
+                    <a href = "#">Feeding India</a>
+                    <a href = "#">Hyperpure</a>
+                    <a href = "#">Zomaland</a>
+                </div>
+            </div>
+            
+            <div class = "link_container">
+                <h5>For Restaurants</h5>
+                <div class = "link_container_anchors">
+                    <a href = "#">Partner With Us</a>
+                    <a href = "#">Apps For You</a>
+                </div>
+                <h5 id = "enterprises">For Enterprises</h5>
+                <div class = "link_container_anchors">
+                    <a href = "#">Zomato For Work</a>
+                </div>
+            </div>
+            
+            <div class = "link_container">
+                <h5>Learn More</h5>
+                <div class = "link_container_anchors">
+                    <a href = "#">Privacy</a>
+                    <a href = "#">Security</a>
+                    <a href = "#">Terms</a>
+                    <a href = "#">Sitemap</a>
+                </div>
+            </div>
+            
+            <div class = "link_container">
+                <h5>Social Links</h5>
+                <div class = "social_media_icon_buttons">
+                    <button role="button" href="https://twitter.com/"><i class="bi bi-twitter"></i></button>
+                    <button role="button" href="https://www.google.com/"><i class="bi bi-google"></i></button>
+                    <button role="button" href="https://instagram.com/"><i class="bi bi-instagram"></i></button>
+                    <button role="button" href="https://linkedin.com/"><i class="bi bi-linkedin"></i></button>
+                    <button role="button" href="https://github.com/"><i class="bi bi-github"></i></button>
+                    <div class = "social_media_logos">
+                        <img src = "{% static 'images/icons/appstore.png' %}" alt = "Apple store" />
+                        <img src = "{% static 'images/icons/playstore.png' %}" alt = "Play store" id = "img2"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "disclaimer">
+        IT-Vedant | 2024 © Zomato™ Ltd. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#search-form').submit(function(event) {
+                event.preventDefault(); // Prevent default form submission
+
+                var query = $('#search-input').val().trim();
+
+                // Submit the form with the query string to your Django view
+                window.location.href = '/search/?q=' + encodeURIComponent(query);
+            });
+        });
+    </script>
+
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
